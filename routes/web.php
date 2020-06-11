@@ -27,3 +27,12 @@ Route::get('/single', function () {
     return view('single');
 });
 
+
+Auth::routes();
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// News
+Route::view('/insertnews','insertNews')->name('insertNews');
+Route::post('/news/insert',"NewsController@insert" )->name('addnews');
