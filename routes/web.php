@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -34,5 +30,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // News
+Route::get('/','NewsController@show');
 Route::view('/insertnews','insertNews')->name('insertNews');
 Route::post('/news/insert',"NewsController@insert" )->name('addnews');

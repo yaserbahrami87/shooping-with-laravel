@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\news;
 class NewsController extends Controller
 {
+    public function show()
+    {
+        $news=news::limit(5)->get();
+        return view ('welcome',compact('news'));
+    }
     public function insert(Request $request)
     {
         $this->validate(request(),
