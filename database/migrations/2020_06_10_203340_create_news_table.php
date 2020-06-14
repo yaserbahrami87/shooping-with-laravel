@@ -14,15 +14,20 @@ class CreateNewsTable extends Migration
     public function up()
     {
         Schema::create('news', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('titrnews');
+            $table->bigIncrements('id_news');
+            //$table->bigInteger('id_news')->unique();
+            $table->string('titrnews',200);
             $table->text('textnews');
-            $table->string('author');
             $table->string('summary');
-            $table->string('category');
+            $table->unsignedBigInteger('user_id');
+            $table->bigInteger('category_id');
             $table->string('img')->default('noimage.jpg');
-            $table->string('tags');
+            $table->string('video')->default('https://www.youtube.com/watch?v=5_rLJNq7Rw8');
+            $table->string('tags')->default('NULL');
+            $table->integer('views')->default(0);
+            $table->integer('likes')->default(0);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
