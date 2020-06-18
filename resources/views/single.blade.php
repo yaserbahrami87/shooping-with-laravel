@@ -1,6 +1,5 @@
 @extends('masters.masterHome')
 @section('part1')
-
 <div id="fh5co-title-box" style="background-image: url({{asset($singleNews->img)}}); background-position: 50% 0.5px;" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="page-title">
@@ -45,8 +44,8 @@
                                 <img src="{{asset($item->img)}}" alt="img" class="fh5co_most_trading"/>
                             </div>
                             <div class="col-7 paddding">
-                                <a href="\news\{{$item->id_news}}">
-                                <div     class="most_fh5co_treding_font">{{($item->titrnews)}}</div>
+                                <a href="\news\{{$item->news_id}}">
+                                <div class="most_fh5co_treding_font">{{($item->titrnews)}}</div>
                                 </a>
                                 <div class="most_fh5co_treding_font_123">{{($item->created_at)}}</div>
                             </div>
@@ -60,6 +59,46 @@
 @endsection
 
 @section('part3')
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default widget">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-comment"></span>
+                <h3 class="panel-title">
+                    Recent Comments</h3>
+                <span class="label label-info">
+                {{$countComments->count()}}</span>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    @foreach ($comments as $item)
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-2 col-md-1">
+                                    <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
+                                <div class="col-xs-10 col-md-11">
+                                    <div>
+                                        <a href="#">{{$item->name }}</a>
+                                        <div class="mic-info">
+                                            {{$item->created_at_comments}}
+                                        </div>
+                                    </div>
+                                    <div class="comment-text">
+                                            {{$item->comment}}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+                {{$comments->links()}}
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('part4')
 <div class="container-fluid pb-4 pt-5">
     <div class="container animate-box">
         <div>
@@ -71,7 +110,7 @@
                     <div class="fh5co_hover_news_img">
                     <div class="fh5co_news_img"><img src="{{asset($item->img)}}" alt="{{$item->titrnews}}"/></div>
                         <div>
-                            <a href="\news\{{$item->id_news}}" class="d-block fh5co_small_post_heading"><span class="">{{$item->titrnews}}</span></a>
+                            <a href="\news\{{$item->news_id}}" class="d-block fh5co_small_post_heading"><span class="">{{$item->titrnews}}</span></a>
                             <div class="c_g"><i class="fa fa-clock-o"></i>{{$item->created_at}}</div>
                         </div>
                     </div>

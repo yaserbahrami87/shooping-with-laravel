@@ -167,7 +167,7 @@
                 <div class="footer_main_title py-3"> Most Viewed Posts</div>
                 @foreach ($mostViewedPost as $item)
                     <div class="footer_makes_sub_font"> {{$item->created_at}}</div>
-                    <a href="\news\{{$item->id_news}}" class="footer_post pb-4"> {{$item->titrnews}} </a>
+                    <a href="\news\{{$item->news_id}}" class="footer_post pb-4"> {{$item->titrnews}} </a>
                 @endforeach
                 <div class="footer_position_absolute"><img src="{{asset('images/footer_sub_tipik.png')}}" alt="img" class="width_footer_sub_img"/></div>
             </div>
@@ -175,7 +175,7 @@
                 <div class="footer_main_title py-3"> Last Modified Posts</div>
 
                 @foreach ($modifedPostfooter as $item)
-                    <a href="\news\{{$item->id_news}}" class="footer_img_post_6"><img src="{{asset($item->img)}}" alt="img"/></a>
+                    <a href="\news\{{$item->news_id}}" class="footer_img_post_6"><img src="{{asset($item->img)}}" alt="img"/></a>
                 @endforeach
             </div>
         </div>

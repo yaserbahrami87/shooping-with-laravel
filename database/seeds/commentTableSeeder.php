@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\news;
-class newsTableSeeder extends Seeder
+use App\Comment;
+class commentTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class newsTableSeeder extends Seeder
      */
     public function run()
     {
-        //news::truncate();
-        factory(news::class,50)->create();
+        //comment::truncate();
+        factory(Comment::class,250)->create();
     }
 }

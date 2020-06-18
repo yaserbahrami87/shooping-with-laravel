@@ -16,4 +16,9 @@ class news extends Model
     {
         return $this->belongsTo('App\User','id');
     }
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

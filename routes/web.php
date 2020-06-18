@@ -15,9 +15,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/blog','BlogController@index');
 
 Auth::routes();
 
@@ -28,5 +26,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','NewsController@show');
 Route::view('/insertnews','insertNews')->name('insertNews');
 Route::post('/news/insert',"NewsController@insert" )->name('addnews');
-Route::get('/news/{singleNews}','NewsController@singleNews');
+Route::get('/news/{singleNews}','SingleNewsController@show');
 //Route::get('/single','NewsController@show');

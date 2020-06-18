@@ -14,9 +14,9 @@
                                 <img src="{{asset($item->img)}}" alt="img"/>
                                 <div class="fh5co_suceefh5co_height_position_absolute"></div>
                                 <div class="fh5co_suceefh5co_height_position_absolute_font">
-                                    <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{$item->created_at}}
+                                    <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{Verta::instance($item->created_at)->format('Y/n/j')}}
                                     </a></div>
-                                    <div class=""><a href="/news/{{$item->id_news}}" class="fh5co_good_font">{{$item->titrnews}}</a></div>
+                                    <div class=""><a href="/news/{{$item->news_id}}" class="fh5co_good_font">{{$item->titrnews}}</a></div>
                                 </div>
                             </div>
                         </div>
@@ -27,8 +27,8 @@
                                 <div class="fh5co_suceefh5co_height_2"><img src="{{asset($item->img)}}" alt="img"/>
                                     <div class="fh5co_suceefh5co_height_position_absolute"></div>
                                     <div class="fh5co_suceefh5co_height_position_absolute_font_2">
-                                        <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{$item->created_at}}</a></div>
-                                        <div class=""><a href="/news/{{$item->id_news}}" class="fh5co_good_font_2">{{$item->titrnews}}</a></div>
+                                        <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{Verta::instance($item->created_at)->format('Y/n/j')}}</a></div>
+                                        <div class=""><a href="/news/{{$item->news_id}}" class="fh5co_good_font_2">{{$item->titrnews}}</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                         <div class="fh5co_latest_trading_img"><img src="{{asset($item->img)}}" alt="" class="fh5co_img_special_relative"/></div>
                         <div class="fh5co_latest_trading_img_position_absolute"></div>
                         <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="\news\{{$item->id_news}}" class="text-white">{{$item->titrnews}}</a>
+                            <a href="\news\{{$item->news_id}}" class="text-white">{{$item->titrnews}}</a>
                             <div class="fh5co_latest_trading_date_and_name_color">{{$item->create_at}}</div>
                         </div>
                     </div>
@@ -81,8 +81,8 @@
                         <div class="fh5co_hover_news_img">
                             <div class="fh5co_news_img"><img src="{{asset($item->img)}}" alt=""/></div>
                             <div>
-                                <a href="\news\{{$item->id_news}}" class="d-block fh5co_small_post_heading"><span class="">{{$item->titrnews}}</span></a>
-                                <div class="c_g"><i class="fa fa-clock-o"></i>{{$item->created_at}}</div>
+                                <a href="\news\{{$item->news_id}}" class="d-block fh5co_small_post_heading"><span class="">{{$item->titrnews}}</span></a>
+                                <div class="c_g"><i class="fa fa-clock-o"></i>{{Verta::instance($item->created_at)->format('Y/n/j')}}</div>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                             <div class="pt-2">
                                 <a href="#" class="d-block fh5co_small_post_heading fh5co_small_post_heading_1">
                                 <span class="">{{$item->titrnews}}</span></a>
-                                <div class="c_g"><i class="fa fa-clock-o"></i> {{$item->created_at}}</div>
+                                <div class="c_g"><i class="fa fa-clock-o"></i> {{Verta::instance($item->created_at)->format('Y/n/j')}}</div>
                             </div>
                         </div>
                     </div>
@@ -153,9 +153,10 @@
                                     </div>
                                 </div>
                                 <div class="col-md-7 animate-box">
-
-                                    <a href="/news/{{$item->id_news}}" class="fh5co_magna py-2">{{$item->titrnews}}</a> <a href="\news\{{$item->id_news}}" class="fh5co_mini_time py-3"> {{$item->name}} -
-                                    {{$item->created_at}}</a>
+                                    <a href="/news/{{$item->news_id}}" class="fh5co_magna py-2">{{$item->titrnews}}</a> <a href="\news\{{$item->news_id}}" class="fh5co_mini_time py-3">
+                                        {{$item->name}} -
+                                        {{ Verta::instance($item->created_at)->format('Y/n/j')}}
+                                    </a>
                                     <div class="fh5co_consectetur">
                                         {{$item->summary}}
                                     </div>
@@ -193,10 +194,10 @@
                             <img src="{{asset($item->img)}}" alt="img" class="fh5co_most_trading"/>
                         </div>
                         <div class="col-7 paddding">
-                            <a href="\news\{{$item->id_news}}">
+                            <a href="\news\{{$item->news_id}}">
                                 <div class="most_fh5co_treding_font">{{$item->titrnews}}</div>
                             </a>
-                            <div class="most_fh5co_treding_font_123">{{$item->created_at}}</div>
+                            <div class="most_fh5co_treding_font_123">{{Verta::instance($item->created_at)->format('Y/n/j')}}</div>
                         </div>
                     </div>
                 @endforeach

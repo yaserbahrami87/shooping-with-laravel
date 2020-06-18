@@ -4,6 +4,7 @@
 
 use App\User;
 use App\news;
+use App\Comment;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -32,7 +33,7 @@ $factory->define(news::class, function (Faker $faker) {
     return [
         //'id_news'=>$faker->unixTime($max = 'now'),
         'titrnews' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-        'textnews' => $faker->realText($maxNbChars = 65000),
+        'textnews' => $faker->realText($maxNbChars = 3000),
         'summary' => $faker->text($maxNbChars = 80),
         'user_id' =>$faker->randomDigitNot(0),
         'category_id' => $faker->randomDigitNot(0),
@@ -40,6 +41,15 @@ $factory->define(news::class, function (Faker $faker) {
         'img'=>$faker->imageUrl($width = 640, $height = 480),
         'views'=>$faker->numberBetween($min = 1, $max = 99999),
         'likes'=>$faker->numberBetween($min = 0, $max = 99999),
+        'created_at'=>$faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
+    ];
+});
+
+$factory->define(comment::class, function (Faker $faker) {
+    return [
+        'user_id'=>$faker->numberBetween($min = 1, $max = 10) ,
+        'news_id'=>$faker->numberBetween($min = 1, $max =50) ,
+        'comment'=>$faker->realText($maxNbChars = 200),
         'created_at'=>$faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
     ];
 });
